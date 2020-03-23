@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="player"></div>
+
+    <script src="src/js/clappr.min.js"></script>
+    <script src="src/js/clappr-video360.js"></script>
+    <script>
+      // The URL to the 360 video player
+      var Video360Url = "video360.mp4";
+
+      // Configure your Clappr player.
+      var PlayerInstance = new Clappr.Player({
+        source: Video360Url,
+        plugins: {
+          container: [Video360]
+        },
+        parentId: "#player"
+      });
+
+      // Important to disable the click to pause native plugin of clappr
+      // otherwise you won't be able to use correctly the player
+      PlayerInstance.getPlugin("click_to_pause").disable();
+    </script>
+  </body>
+</html>
